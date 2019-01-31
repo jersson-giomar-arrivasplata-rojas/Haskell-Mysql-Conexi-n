@@ -1,0 +1,339 @@
+Microsoft Windows [Versión 10.0.10240]
+(c) 2015 Microsoft Corporation. Todos los derechos reservados.
+
+C:\Users\Giomar>cabal --version
+cabal-install version 2.2.0.0
+compiled using version 2.2.0.1 of the Cabal library
+
+C:\Users\Giomar>cabal install mysql-haskell
+Warning: The package list for 'hackage.haskell.org' does not exist. Run 'cabal
+update' to download it.
+cabal: There is no package named 'mysql-haskell'.
+You may need to run 'cabal update' to get the latest list of available
+packages.
+
+
+C:\Users\Giomar>cabal install mysql-haskell
+Warning: The package list for 'hackage.haskell.org' does not exist. Run 'cabal
+update' to download it.
+cabal: There is no package named 'mysql-haskell'.
+You may need to run 'cabal update' to get the latest list of available
+packages.
+
+
+C:\Users\Giomar>runhaskell
+
+C:\Users\Giomar>runhaskell  /?
+target `\?' is not a module name or a source file
+
+C:\Users\Giomar>cabal update -v3
+no user package environment file found at C:\Users\Giomar
+Downloading the latest package list from hackage.haskell.org
+Searching for curl in path.
+Cannot find curl on the path
+Searching for powershell in path.
+Found powershell at C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Searching for wget in path.
+Cannot find wget on the path
+Selected http transport implementation: powershell
+Warning: The package list for 'hackage.haskell.org' does not exist. Run 'cabal
+update' to download it.
+Selected mirror http://hackage.haskell.org/
+Downloading timestamp
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
+$uri = New-Object "System.Uri" "http://hackage.haskell.org/timestamp.json"
+$request = [System.Net.HttpWebRequest]::Create($uri)
+$targetStream = New-Object -TypeName System.IO.FileStream -ArgumentList
+"C:\\Users\\Giomar\\AppData\\Local\\Temp\\transportAdapterGet4036-1", Create
+$request.UserAgent = "cabal-install/2.2.0.0 (windows; x86_64)"
+$request.Headers.Add("Cache-Control","no-transform");
+
+Try {
+$response = $request.GetResponse()
+$responseStream = $response.GetResponseStream()
+$buffer = new-object byte[] 10KB
+$count = $responseStream.Read($buffer, 0, $buffer.length)
+while ($count -gt 0)
+{
+$targetStream.Write($buffer, 0, $count)
+$count = $responseStream.Read($buffer, 0, $buffer.length)
+}
+Write-Host ($response.StatusCode -as [int]);
+Write-Host $response.GetResponseHeader("ETag").Trim('"')
+
+} Catch [System.Net.WebException] {
+$exception = $_.Exception;
+If ($exception.Status -eq [System.Net.WebExceptionStatus]::ProtocolError) {
+$response = $exception.Response -as [System.Net.HttpWebResponse];
+$reader = new-object System.IO.StreamReader($response.GetResponseStream());
+Write-Host ($response.StatusCode -as [int]);
+Write-Host $reader.ReadToEnd();
+} Else {
+Write-Host $exception.Message;
+}
+} Catch {
+Write-Host $_.Exception.Message;
+} finally {
+$targetStream.Flush()
+$targetStream.Close()
+$targetStream.Dispose()
+$responseStream.Dispose()
+
+}
+"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" "-InputFormat" "None" "-ExecutionPolicy" "bypass" "-NoProfile" "-NonInteractive" "-Command" "-"
+Downloading snapshot
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
+$uri = New-Object "System.Uri" "http://hackage.haskell.org/snapshot.json"
+$request = [System.Net.HttpWebRequest]::Create($uri)
+$targetStream = New-Object -TypeName System.IO.FileStream -ArgumentList
+"C:\\Users\\Giomar\\AppData\\Local\\Temp\\transportAdapterGet4036-3", Create
+$request.UserAgent = "cabal-install/2.2.0.0 (windows; x86_64)"
+$request.Headers.Add("Cache-Control","no-transform");
+
+Try {
+$response = $request.GetResponse()
+$responseStream = $response.GetResponseStream()
+$buffer = new-object byte[] 10KB
+$count = $responseStream.Read($buffer, 0, $buffer.length)
+while ($count -gt 0)
+{
+$targetStream.Write($buffer, 0, $count)
+$count = $responseStream.Read($buffer, 0, $buffer.length)
+}
+Write-Host ($response.StatusCode -as [int]);
+Write-Host $response.GetResponseHeader("ETag").Trim('"')
+
+} Catch [System.Net.WebException] {
+$exception = $_.Exception;
+If ($exception.Status -eq [System.Net.WebExceptionStatus]::ProtocolError) {
+$response = $exception.Response -as [System.Net.HttpWebResponse];
+$reader = new-object System.IO.StreamReader($response.GetResponseStream());
+Write-Host ($response.StatusCode -as [int]);
+Write-Host $reader.ReadToEnd();
+} Else {
+Write-Host $exception.Message;
+}
+} Catch {
+Write-Host $_.Exception.Message;
+} finally {
+$targetStream.Flush()
+$targetStream.Close()
+$targetStream.Dispose()
+$responseStream.Dispose()
+
+}
+"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" "-InputFormat" "None" "-ExecutionPolicy" "bypass" "-NoProfile" "-NonInteractive" "-Command" "-"
+Downloading mirrors
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
+$uri = New-Object "System.Uri" "http://hackage.haskell.org/mirrors.json"
+$request = [System.Net.HttpWebRequest]::Create($uri)
+$targetStream = New-Object -TypeName System.IO.FileStream -ArgumentList
+"C:\\Users\\Giomar\\AppData\\Local\\Temp\\transportAdapterGet4036-5", Create
+$request.UserAgent = "cabal-install/2.2.0.0 (windows; x86_64)"
+$request.Headers.Add("Cache-Control","no-transform");
+
+Try {
+$response = $request.GetResponse()
+$responseStream = $response.GetResponseStream()
+$buffer = new-object byte[] 10KB
+$count = $responseStream.Read($buffer, 0, $buffer.length)
+while ($count -gt 0)
+{
+$targetStream.Write($buffer, 0, $count)
+$count = $responseStream.Read($buffer, 0, $buffer.length)
+}
+Write-Host ($response.StatusCode -as [int]);
+Write-Host $response.GetResponseHeader("ETag").Trim('"')
+
+} Catch [System.Net.WebException] {
+$exception = $_.Exception;
+If ($exception.Status -eq [System.Net.WebExceptionStatus]::ProtocolError) {
+$response = $exception.Response -as [System.Net.HttpWebResponse];
+$reader = new-object System.IO.StreamReader($response.GetResponseStream());
+Write-Host ($response.StatusCode -as [int]);
+Write-Host $reader.ReadToEnd();
+} Else {
+Write-Host $exception.Message;
+}
+} Catch {
+Write-Host $_.Exception.Message;
+} finally {
+$targetStream.Flush()
+$targetStream.Close()
+$targetStream.Dispose()
+$responseStream.Dispose()
+
+}
+"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" "-InputFormat" "None" "-ExecutionPolicy" "bypass" "-NoProfile" "-NonInteractive" "-Command" "-"
+Cannot update index (no local copy)
+Downloading index
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
+$uri = New-Object "System.Uri" "http://hackage.haskell.org/01-index.tar.gz"
+$request = [System.Net.HttpWebRequest]::Create($uri)
+$targetStream = New-Object -TypeName System.IO.FileStream -ArgumentList
+"C:\\Users\\Giomar\\AppData\\Local\\Temp\\transportAdapterGet4036-7", Create
+$request.UserAgent = "cabal-install/2.2.0.0 (windows; x86_64)"
+$request.Headers.Add("Cache-Control","no-transform");
+
+Try {
+$response = $request.GetResponse()
+$responseStream = $response.GetResponseStream()
+$buffer = new-object byte[] 10KB
+$count = $responseStream.Read($buffer, 0, $buffer.length)
+while ($count -gt 0)
+{
+$targetStream.Write($buffer, 0, $count)
+$count = $responseStream.Read($buffer, 0, $buffer.length)
+}
+Write-Host ($response.StatusCode -as [int]);
+Write-Host $response.GetResponseHeader("ETag").Trim('"')
+
+} Catch [System.Net.WebException] {
+$exception = $_.Exception;
+If ($exception.Status -eq [System.Net.WebExceptionStatus]::ProtocolError) {
+$response = $exception.Response -as [System.Net.HttpWebResponse];
+$reader = new-object System.IO.StreamReader($response.GetResponseStream());
+Write-Host ($response.StatusCode -as [int]);
+Write-Host $reader.ReadToEnd();
+} Else {
+Write-Host $exception.Message;
+}
+} Catch {
+Write-Host $_.Exception.Message;
+} finally {
+$targetStream.Flush()
+$targetStream.Close()
+$targetStream.Dispose()
+$responseStream.Dispose()
+
+}
+"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" "-InputFormat" "None" "-ExecutionPolicy" "bypass" "-NoProfile" "-NonInteractive" "-Command" "-"
+Updating index cache file
+C:\Users\Giomar\AppData\Roaming\cabal\packages\hackage.haskell.org\01-index.cache
+...
+Index cache updated to index-state 2018-06-05T14:01:49Z
+
+C:\Users\Giomar>cabal install mysql-haskell
+Resolving dependencies...
+Downloading basement-0.0.7...
+Downloading binary-ieee754-0.1.0.0...
+Configuring binary-ieee754-0.1.0.0...
+Configuring basement-0.0.7...
+Building binary-ieee754-0.1.0.0...
+Building basement-0.0.7...
+Installed binary-ieee754-0.1.0.0
+Downloading blaze-builder-0.4.1.0...
+Configuring blaze-builder-0.4.1.0...
+Building blaze-builder-0.4.1.0...
+Installed blaze-builder-0.4.1.0
+Downloading bytestring-builder-0.10.8.1.0...
+Configuring bytestring-builder-0.10.8.1.0...
+Building bytestring-builder-0.10.8.1.0...
+Installed bytestring-builder-0.10.8.1.0
+Downloading bytestring-lexing-0.5.0.2...
+Configuring bytestring-lexing-0.5.0.2...
+Building bytestring-lexing-0.5.0.2...
+Installed bytestring-lexing-0.5.0.2
+Downloading cereal-0.5.5.0...
+Configuring cereal-0.5.5.0...
+Building cereal-0.5.5.0...
+Installed basement-0.0.7
+Downloading data-default-class-0.1.2.0...
+Configuring data-default-class-0.1.2.0...
+Installed cereal-0.5.5.0
+Downloading hourglass-0.2.11...
+Building data-default-class-0.1.2.0...
+Installed data-default-class-0.1.2.0
+Downloading monad-loops-0.4.3...
+Configuring hourglass-0.2.11...
+Building hourglass-0.2.11...
+Configuring monad-loops-0.4.3...
+Building monad-loops-0.4.3...
+Installed monad-loops-0.4.3
+Downloading old-locale-1.0.0.7...
+Configuring old-locale-1.0.0.7...
+Building old-locale-1.0.0.7...
+Installed old-locale-1.0.0.7
+Downloading word24-2.0.1...
+Installed hourglass-0.2.11
+Downloading zlib-bindings-0.1.1.5...
+Configuring word24-2.0.1...
+Configuring zlib-bindings-0.1.1.5...
+Building word24-2.0.1...
+Building zlib-bindings-0.1.1.5...
+Installed word24-2.0.1
+Downloading binary-parsers-0.2.3.0...
+Installed zlib-bindings-0.1.1.5
+Downloading foundation-0.0.20...
+Configuring binary-parsers-0.2.3.0...
+Configuring foundation-0.0.20...
+Building binary-parsers-0.2.3.0...
+Building foundation-0.0.20...
+Installed binary-parsers-0.2.3.0
+Downloading blaze-textual-0.2.1.0...
+Configuring blaze-textual-0.2.1.0...
+Building blaze-textual-0.2.1.0...
+Installed blaze-textual-0.2.1.0
+Downloading io-streams-1.5.0.1...
+Configuring io-streams-1.5.0.1...
+Building io-streams-1.5.0.1...
+Installed io-streams-1.5.0.1
+Downloading wire-streams-0.1.1.0...
+Configuring wire-streams-0.1.1.0...
+Building wire-streams-0.1.1.0...
+Installed wire-streams-0.1.1.0
+Installed foundation-0.0.20
+Downloading memory-0.14.16...
+Configuring memory-0.14.16...
+Building memory-0.14.16...
+Installed memory-0.14.16
+Downloading cryptonite-0.25...
+Downloading pem-0.2.4...
+Configuring pem-0.2.4...
+Building pem-0.2.4...
+Installed pem-0.2.4
+Downloading asn1-types-0.3.2...
+Configuring cryptonite-0.25...
+Building cryptonite-0.25...
+Configuring asn1-types-0.3.2...
+Building asn1-types-0.3.2...
+Installed asn1-types-0.3.2
+Downloading asn1-encoding-0.9.5...
+Configuring asn1-encoding-0.9.5...
+Building asn1-encoding-0.9.5...
+Installed asn1-encoding-0.9.5
+Downloading asn1-parse-0.9.4...
+Configuring asn1-parse-0.9.4...
+Building asn1-parse-0.9.4...
+Installed asn1-parse-0.9.4
+Installed cryptonite-0.25
+Downloading x509-1.7.3...
+Configuring x509-1.7.3...
+Building x509-1.7.3...
+Installed x509-1.7.3
+Downloading x509-store-1.6.6...
+Configuring x509-store-1.6.6...
+Building x509-store-1.6.6...
+Installed x509-store-1.6.6
+Downloading x509-validation-1.6.10...
+Downloading x509-system-1.6.6...
+Configuring x509-system-1.6.6...
+Building x509-system-1.6.6...
+Installed x509-system-1.6.6
+Configuring x509-validation-1.6.10...
+Building x509-validation-1.6.10...
+Installed x509-validation-1.6.10
+Downloading tls-1.4.1...
+Configuring tls-1.4.1...
+Building tls-1.4.1...
+Installed tls-1.4.1
+Downloading tcp-streams-1.0.1.0...
+Configuring tcp-streams-1.0.1.0...
+Building tcp-streams-1.0.1.0...
+Installed tcp-streams-1.0.1.0
+Downloading mysql-haskell-0.8.3.0...
+Configuring mysql-haskell-0.8.3.0...
+Building mysql-haskell-0.8.3.0...
+Installed mysql-haskell-0.8.3.0
+
+C:\Users\Giomar>

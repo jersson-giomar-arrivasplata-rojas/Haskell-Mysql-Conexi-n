@@ -1,0 +1,362 @@
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01$ cabal build
+Package has never been configured. Configuring with default flags. If this
+fails, please run configure manually.
+cabal: No cabal file found.
+Please create a package description file <pkgname>.cabal
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01$ cabal init
+Package name? [default: cabal01] cabal01
+Package version? [default: 0.1.0.0] 
+Please choose a license:
+ * 1) (none)
+   2) GPL-2
+   3) GPL-3
+   4) LGPL-2.1
+   5) LGPL-3
+   6) AGPL-3
+   7) BSD2
+   8) BSD3
+   9) MIT
+  10) ISC
+  11) MPL-2.0
+  12) Apache-2.0
+  13) PublicDomain
+  14) AllRightsReserved
+  15) Other (specify)
+Your choice? [default: (none)] 1
+Author name? JGAR
+Maintainer email? 
+Project homepage URL? 
+Project synopsis? 
+Project category:
+ * 1) (none)
+   2) Codec
+   3) Concurrency
+   4) Control
+   5) Data
+   6) Database
+   7) Development
+   8) Distribution
+   9) Game
+  10) Graphics
+  11) Language
+  12) Math
+  13) Network
+  14) Sound
+  15) System
+  16) Testing
+  17) Text
+  18) Web
+  19) Other (specify)
+Your choice? [default: (none)] 1
+What does the package build:
+   1) Library
+   2) Executable
+Your choice? 2
+What is the main module of the executable:
+ * 1) Main.hs (does not yet exist)
+   2) Main.lhs (does not yet exist)
+   3) Other (specify)
+Your choice? [default: Main.hs (does not yet exist)] 1
+What base language is the package written in:
+ * 1) Haskell2010
+   2) Haskell98
+   3) Other (specify)
+Your choice? [default: Haskell2010] 1
+Include documentation on what each field means (y/n)? [default: n] y
+Source directory:
+ * 1) (none)
+   2) src
+   3) Other (specify)
+Your choice? [default: (none)] 2
+
+Guessing dependencies...
+
+Warning: no package found providing Database.HDBC.
+
+Warning: no package found providing Database.HDBC.MySQL.
+
+Generating LICENSE...
+Warning: unknown license type, you must put a copy in LICENSE yourself.
+Generating Setup.hs...
+Generating cabal01.cabal...
+
+Warning: no synopsis given. You should edit the .cabal file and add one.
+You may want to edit the .cabal file and add a Description field.
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01$ cabal build
+Package has never been configured. Configuring with default flags. If this
+fails, please run configure manually.
+Resolving dependencies...
+Configuring cabal01-0.1.0.0...
+Warning: The 'license-file' field refers to the file 'LICENSE' which does not
+exist.
+Building cabal01-0.1.0.0...
+Preprocessing executable 'cabal01' for cabal01-0.1.0.0...
+cabal: can't find source for Main in src
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01$ cabal test
+Re-configuring with test suites enabled. If this fails, please run configure
+manually.
+Resolving dependencies...
+Configuring cabal01-0.1.0.0...
+Warning: The 'license-file' field refers to the file 'LICENSE' which does not
+exist.
+Package has no buildable test suites.
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01$ cabal test
+Re-configuring with test suites enabled. If this fails, please run configure
+manually.
+Resolving dependencies...
+Configuring cabal01-0.1.0.0...
+Warning: The 'license-file' field refers to the file 'LICENSE' which does not
+exist.
+Package has no buildable test suites.
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01$ cabal build
+Building cabal01-0.1.0.0...
+Preprocessing executable 'cabal01' for cabal01-0.1.0.0...
+cabal: can't find source for Main in src
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01$ cabal build
+Building cabal01-0.1.0.0...
+Preprocessing executable 'cabal01' for cabal01-0.1.0.0...
+
+src/Database/HDBC/MySQL.hs:64:8:
+    Could not find module ‘Database.HDBC.MySQL.Connection’
+    Use -v to see a list of the files searched for.
+
+src/Database/HDBC/MySQL.hs:65:8:
+    Could not find module ‘Database.HDBC.MySQL.RTS’
+    Use -v to see a list of the files searched for.
+
+src/Main.hs:2:8:
+    Could not find module ‘Database.HDBC’
+    Use -v to see a list of the files searched for.
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01$ cabal build
+Building cabal01-0.1.0.0...
+Preprocessing executable 'cabal01' for cabal01-0.1.0.0...
+cabal: can't find source for Main in src
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01$ cabal Test
+cabal: unrecognised command: Test (try --help)
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01$ cabal test
+Re-configuring with test suites enabled. If this fails, please run configure
+manually.
+Resolving dependencies...
+Configuring cabal01-0.1.0.0...
+Warning: The 'license-file' field refers to the file 'LICENSE' which does not
+exist.
+Package has no buildable test suites.
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01$ ghc -idist/build -L/opt/local/lib/mysql5/mysql -lmysqlclient --make Test
+
+<command line>:
+    Could not find module ‘Test’
+    Use -v to see a list of the files searched for.
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01$ ghc -idist/build -L/opt/local/lib/mysql5/mysql -lmysqlclient --make Test
+
+<command line>:
+    Could not find module ‘Test’
+    Use -v to see a list of the files searched for.
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01$ cd testsrc/
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ ghc --make -package HUnit -package HDBC -Wall -i../dist/build -i.. -L/opt/local/lib/mysql5/mysql -lmysqlclient -o runtests runtests.hs
+
+<no location info>: can't find file: runtests.hs
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ ^C
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ ghc --make -package HUnit -package HDBC -Wall -i../dist/build -i.. -L/opt/local/lib/mysql5/mysql -lmysqlclient -o Test Test.hs 
+[1 of 1] Compiling Main             ( Test.hs, Test.o )
+
+Test.hs:4:1: Warning:
+    Top-level binding with no type signature: main :: IO ()
+Linking Test ...
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ ghc --make -package HUnit -package HDBC -Wall -i../dist/build -i.. -L/opt/local/lib/mysql5/mysql -lmysqlclient -o Test Test.hs 
+[1 of 1] Compiling Main             ( Test.hs, Test.o )
+
+Test.hs:4:1: Warning:
+    Top-level binding with no type signature: main :: IO ()
+Linking Test ...
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ ghci 
+GHCi, version 7.10.3: http://www.haskell.org/ghc/  :? for help
+Prelude> rows
+
+<interactive>:2:1: Not in scope: ‘rows’
+Prelude> conn
+
+<interactive>:3:1: Not in scope: ‘conn’
+Prelude> 
+Prelude> 
+[1]+  Detenido                ghci
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ cabal test
+Package has never been configured. Configuring with default flags. If this
+fails, please run configure manually.
+cabal: No cabal file found.
+Please create a package description file <pkgname>.cabal
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ ./Test 
+[SqlInt64 2]
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ nix-shell -p haskell.packages.ghc801.ghc gcc mysql57 pkgconfig zlib openssl haskellPackages.haddock
+nix-shell: no se encontró la orden
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ sudo apt-get install nix-shell[sudo] password for ubuntu: 
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias       
+Leyendo la información de estado... Hecho
+E: No se ha podido localizar el paquete nix-shell
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ ./Test 
+[SqlInt64 2]
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ ghci
+GHCi, version 7.10.3: http://www.haskell.org/ghc/  :? for help
+Prelude> :load ./Test
+[1 of 1] Compiling Main             ( Test.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> ro
+rollback  round
+*Main> main
+[SqlInt64 2]
+*Main> mian ro
+rollback  round
+*Main> mian rows
+
+<interactive>:4:1:
+    Not in scope: ‘mian’
+    Perhaps you meant one of these:
+      ‘main’ (line 4), ‘min’ (imported from Prelude)
+
+<interactive>:4:6: Not in scope: ‘rows’
+*Main> rows
+
+<interactive>:5:1: Not in scope: ‘rows’
+*Main> main 
+[SqlInt64 2]
+*Main> quickQuery
+
+<interactive>:7:1:
+    No instance for (Show
+                       (conn0 -> String -> [SqlValue] -> IO [[SqlValue]]))
+      (maybe you haven't applied enough arguments to a function?)
+      arising from a use of ‘print’
+    In a stmt of an interactive GHCi command: print it
+*Main> conn -> rows
+
+<interactive>:8:6: parse error on input ‘->’
+*Main> conn <- rows
+
+<interactive>:9:9: Not in scope: ‘rows’
+*Main> main conn
+
+<interactive>:10:6: Not in scope: ‘conn’
+*Main> conn
+
+<interactive>:11:1: Not in scope: ‘conn’
+*Main> do
+
+<interactive>:12:1: Empty 'do' block
+*Main> main =
+
+<interactive>:13:6: parse error on input ‘=’
+*Main> main = do conn
+
+<interactive>:14:6: parse error on input ‘=’
+*Main> main:type
+
+<interactive>:15:6: parse error on input ‘type’
+*Main> main:t
+
+<interactive>:16:6: Not in scope: ‘t’
+*Main> :m + Database.HDBC.
+Database.HDBC.ColTypes     Database.HDBC.MySQL        Database.HDBC.Types
+Database.HDBC.DriverUtils  Database.HDBC.SqlValue
+Database.HDBC.Locale       Database.HDBC.Statement
+*Main> :m + Database.HDBC.MySQL 
+*Main Database.HDBC.MySQL> conn<-connectMySQL "Test
+Test.hs  Test.hi  Test.o   Test
+*Main Database.HDBC.MySQL> conn<-connectMySQL "Test"
+
+<interactive>:18:20:
+    Couldn't match expected type ‘MySQLConnectInfo’
+                with actual type ‘[Char]’
+    In the first argument of ‘connectMySQL’, namely ‘"Test"’
+    In the first argument of ‘GHC.GHCi.ghciStepIO ::
+                                IO a_a3Zo -> IO a_a3Zo’, namely
+      ‘connectMySQL "Test"’
+    In a stmt of an interactive GHCi command:
+      conn <- GHC.GHCi.ghciStepIO :: IO a_a3Zo -> IO a_a3Zo
+              (connectMySQL "Test")
+*Main Database.HDBC.MySQL> conn
+
+<interactive>:19:1: Not in scope: ‘conn’
+*Main Database.HDBC.MySQL> t
+tail           takeWhile      tanh           toEnum         toRational     traverse
+take           tan            throwSqlError  toInteger      toSql          truncate
+*Main Database.HDBC.MySQL> t
+tail           takeWhile      tanh           toEnum         toRational     traverse
+take           tan            throwSqlError  toInteger      toSql          truncate
+*Main Database.HDBC.MySQL> Tr
+Traversable  True
+*Main Database.HDBC.MySQL> "Test
+Test.hs  Test.hi  Test.o   Test
+*Main Database.HDBC.MySQL> "Test"
+"Test"
+*Main Database.HDBC.MySQL> "Test.hs"
+"Test.hs"
+*Main Database.HDBC.MySQL> hdbc
+hdbcClientVer   hdbcDriverName
+*Main Database.HDBC.MySQL> hdbcDriverName  conn "Test"
+
+<interactive>:22:17: Not in scope: ‘conn’
+*Main Database.HDBC.MySQL> 
+[2]+  Detenido                ghci
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ runhaskell Test
+Test     Test.hi  Test.hs  Test.o   
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ runhaskell Test
+Test     Test.hi  Test.hs  Test.o   
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ runhaskell Test.hs
+[SqlInt64 2]
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ runhaskell Test.hs
+[SqlInt64 4]
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ runhaskell Test.hs
+
+Test.hs:11:19:
+    Couldn't match expected type ‘IO (t0 a0)’
+                with actual type ‘[SqlValue] -> IO [[SqlValue]]’
+    Probable cause: ‘quickQuery'’ is applied to too few arguments
+    In a stmt of a 'do' block:
+      rows <- quickQuery' conn "SELECT * FROM usuario"
+    In the expression:
+      do { conn <- connectMySQL
+                     (defaultMySQLConnectInfo
+                        {mysqlHost = "127.0.0.1", mysqlDatabase = "test",
+                         mysqlUser = "root", mysqlPassword = ""});
+           rows <- quickQuery' conn "SELECT * FROM usuario";
+           forM_ rows $ \ row -> putStrLn $ show row }
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ runhaskell Test.hs
+
+Test.hs:11:19:
+    Couldn't match expected type ‘IO (t0 a0)’
+                with actual type ‘[SqlValue] -> IO [[SqlValue]]’
+    Probable cause: ‘quickQuery'’ is applied to too few arguments
+    In a stmt of a 'do' block:
+      rows <- quickQuery'
+                conn "SELECT id FROM usuario where nombre='jersson'"
+    In the expression:
+      do { conn <- connectMySQL
+                     (defaultMySQLConnectInfo
+                        {mysqlHost = "127.0.0.1", mysqlDatabase = "test",
+                         mysqlUser = "root", mysqlPassword = ""});
+           rows <- quickQuery'
+                     conn "SELECT id FROM usuario where nombre='jersson'";
+           forM_ rows $ \ row -> putStrLn $ show row }
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ runhaskell Test.hs
+[SqlInt32 1]
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ runhaskell Test.hs
+[SqlInt32 1,SqlByteString "Jersson"]
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ runhaskell Test.hs
+[SqlInt32 1,SqlByteString "Jersson"]
+ubuntu@ubuntu-virtual-machine:~/Escritorio/cabal01/testsrc$ 
